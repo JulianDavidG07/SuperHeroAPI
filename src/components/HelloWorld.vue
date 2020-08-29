@@ -3,9 +3,9 @@
     <button class=" bg-black text-white" @click="getHeroesArray">
       Get Data
     </button>
-
-    <ul v-for="item of heroesArray" :key="item">
-      <li>{{ item }}</li>
+    {{ heroesArray }}
+    <ul>
+      <li v-for="item of heroesArray" :key="item">{{ item }}</li>
     </ul>
   </div>
 </template>

@@ -14,9 +14,13 @@ export default new Vuex.Store({
   },
   actions: {
     getHeroesArray: async ({ commit }) => {
-      const data = await fetch("https://jsonplaceholder.typicode.com/posts");
-      const heroesArray = data.json();
-      commit("pushHeroesArray", heroesArray);
+      try {
+        const data = await fetch("https://jsonplaceholder.typicode.com/posts");
+        const heroesArray = await data.json();
+        commit("pushHeroesArray", heroesArray);
+      } catch (error) {
+        alert(error);
+      }
     },
   },
   modules: {},
